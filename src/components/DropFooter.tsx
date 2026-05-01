@@ -40,7 +40,7 @@ export function DropFooter() {
           className="font-glitch mt-2"
           style={{ fontSize: "clamp(2rem, 9vw, 7rem)" }}
         >
-          01 · 04 · 2026
+          01 · 05 · 2026
         </h3>
 
         <div className="mt-8 inline-flex items-center gap-3 px-5 py-2 border border-white/30 skew-tag font-marker text-xs md:text-sm tracking-[0.3em]">
