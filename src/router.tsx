@@ -65,3 +65,24 @@ export const getRouter = () => {
 
   return router;
 };
+
+import ReactDOM from 'react-dom/client'
+import { RouterProvider } from '@tanstack/react-router'
+
+// ... seu código anterior (getRouter, etc)
+
+const router = getRouter();
+
+// Register the router instance for type safety
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
+// Inicializa o React e renderiza o roteador no elemento #root
+const rootElement = document.getElementById('root')!
+if (!rootElement.innerHTML) {
+  const root = ReactDOM.createRoot(rootElement)
+  root.render(<RouterProvider router={router} />)
+}
