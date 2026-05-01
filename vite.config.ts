@@ -1,16 +1,19 @@
 import { defineConfig } from 'vite'
+import path from 'path' // Você pode precisar instalar @types/node: bun add -d @types/node
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
-// ... outros imports
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [
-    // O nome correto da função é TanStackRouterVite e o import deve vir de '/vite'
-    TanStackRouterVite(), 
-    // ... outros plugins como o @cloudflare/vite-plugin
+    TanStackRouterVite(),
+    react(),
   ],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   build: {
-    // Como você usa TanStack Start, o diretório de saída deve ser 'dist'
-    // O framework criará automaticamente as subpastas /client e /server dentro dele
-    outDir: 'dist', 
+    outDir: 'dist',
   }
 })
