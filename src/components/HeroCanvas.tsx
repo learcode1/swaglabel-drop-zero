@@ -160,15 +160,18 @@ export function HeroCanvas() {
       drawnFrameRef.current = i;
     };
 
-    const tick = () => {
-      const target = targetFrameRef.current;
-      if ((target | 0) !== drawnFrameRef.current) {
-        drawFrameInternal(target);
-        const lbl = (target | 0) + 1;
-        setFrameLabel((prev) => (prev !== lbl ? lbl : prev));
-      }
-      rafRef.current = requestAnimationFrame(tick);
-    };
+const tick = () => {
+  // Se target for 10, ele desenha o frame 20. A animação voa.
+  const speedMultiplier = 1.5; // Ajuste este número (1.5 = 50% mais rápido, 2.0 = dobro)
+  const target = targetFrameRef.current * speedMultiplier; 
+
+  if ((target | 0) !== drawnFrameRef.current) {
+    drawFrameInternal(target);
+    const lbl = (target | 0) + 1;
+    setFrameLabel((prev) => (prev !== lbl ? lbl : prev));
+  }
+  rafRef.current = requestAnimationFrame(tick);
+};
 
     rafRef.current = requestAnimationFrame(tick);
     return () => {

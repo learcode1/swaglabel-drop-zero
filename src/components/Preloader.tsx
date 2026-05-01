@@ -43,7 +43,7 @@ export function Preloader({ progress, done }: PreloaderProps) {
             />
           </div>
           <div className="mt-4 text-[10px] tracking-[0.3em] text-white/40 font-marker">
-            YOU ARE NOT ALONE — 102 FRAMES
+            YOU ARE NOT ALONE 
           </div>
         </div>
       </div>
