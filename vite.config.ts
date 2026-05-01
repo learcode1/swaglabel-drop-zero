@@ -1,13 +1,16 @@
 import { defineConfig } from 'vite'
-import { tanstackRouter } from '@tanstack/router-plugin'
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 // ... outros imports
 
 export default defineConfig({
   plugins: [
-    tanstackRouter(),
-    // ... outros plugins
+    // O nome correto da função é TanStackRouterVite e o import deve vir de '/vite'
+    TanStackRouterVite(), 
+    // ... outros plugins como o @cloudflare/vite-plugin
   ],
   build: {
-    outDir: 'dist', // O framework cuidará de criar a subpasta /client
+    // Como você usa TanStack Start, o diretório de saída deve ser 'dist'
+    // O framework criará automaticamente as subpastas /client e /server dentro dele
+    outDir: 'dist', 
   }
 })
