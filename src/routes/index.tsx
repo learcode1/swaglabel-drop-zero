@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { HeroCanvas } from "@/components/HeroCanvas";
+import { HeroCanvas } from "../components/HeroCanvas";
 import { ProductSection } from "@/components/ProductSection";
 import { DropFooter } from "@/components/DropFooter";
 
